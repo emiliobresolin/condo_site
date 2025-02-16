@@ -9,14 +9,21 @@
 <body>
     <h1>Chamados</h1>
     <div id="tickets">
-        {% for ticket in tickets %}
-            <p>{{ ticket.description }} - Status: {{ ticket.status }} - Resposta: {{ ticket.response or 'Aguardando resposta' }}</p>
-        {% endfor %}
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Resposta</th>
+            </tr>
+            {% for ticket in tickets %}
+            <tr>
+                <td>{{ ticket.description }}</td>
+                <td>{{ ticket.status }}</td>
+                <td>{{ ticket.response or 'Aguardando resposta' }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
-    <form action="/add_ticket" method="POST">
-        <input type="text" name="description" placeholder="Descrição do chamado" required>
-        <button type="submit">Adicionar Chamado</button>
-    </form>
     <a href="/">Voltar</a>
 </body>
 </html>

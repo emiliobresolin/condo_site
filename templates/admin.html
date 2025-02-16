@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Edifício Taurus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Administração - Edifício Taurus</h1>
+    <h2>Chamados</h2>
+    <table>
+        <tr>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Resposta</th>
+            <th>Ação</th>
+        </tr>
+        {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.description }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>{{ ticket.response or 'Aguardando resposta' }}</td>
+            <td>
+                <form action="/update_ticket/{{ loop.index0 }}" method="POST">
+                    <input type="text" name="status" value="{{ ticket.status }}" required>
+                    <input type="text" name="response" value="{{ ticket.response }}">
+                    <button type="submit">Atualizar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Contas</h2>
+    <table>
+        <tr>
+            <th>Usuário</th>
+            <th>Status</th>
+            <th>Ação</th>
+        </tr>
+        {% for account in accounts %}
+        <tr>
+            <td>{{ account.user }}</td>
+            <td>{{ account.status }}</td>
+            <td>
+                <form action="/update_account/{{ loop.index0 }}" method="POST">
+                    <input type="text" name="status" value="{{ account.status }}" required>
+                    <button type="submit">Atualizar</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/">Voltar</a>
+</body>
+</html>
