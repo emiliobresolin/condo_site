@@ -56,6 +56,29 @@ def tickets():
     user_tickets = [t for t in tickets if t['user'] == session['username']]
     return render_template('tickets.html', tickets=user_tickets)
 
+# Página para criar um novo chamado (somente para usuários logados)
+@app.route('/create_ticket', methods=['POST'])
+def create_ticket():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    description = request.form['description']
+    new_ticket = {
+        'user': session['username'],
+        'description': description,
+        'status': 'Aberto',
+        'response': ''
+    }
+
+    # Carregar os tickets existentes
+    tickets = load_json('tickets.json')
+    tickets.append(new_ticket)
+
+    # Salvar o novo ticket
+    save_json('tickets.json', tickets)
+
+    return redirect(url_for('tickets'))
+
 # Página de contas (somente para usuários logados)
 @app.route('/accounts')
 def accounts():

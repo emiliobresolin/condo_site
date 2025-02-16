@@ -177,3 +177,76 @@ a:hover {
         width: 100%;
     }
 }
+/* Estilo do formulário de criação de chamado */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Título do formulário */
+form h2 {
+    color: #28a745;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilo do campo de descrição */
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height: 100px;
+    resize: vertical; /* Permite o redimensionamento vertical */
+    font-size: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo do botão */
+form button {
+    background-color: #28a745; /* Cor verde */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+/* Efeito de hover no botão */
+form button:hover {
+    background-color: #218838; /* Verde mais escuro */
+    transform: scale(1.05); /* Leve aumento de tamanho */
+}
+
+/* Estilo dos links (cancelamento, por exemplo) */
+form a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Efeito de hover nos links */
+form a:hover {
+    background-color: #ddd;
+    transform: scale(1.05); /* Leve aumento de tamanho */
+}

@@ -8,6 +8,11 @@
 </head>
 <body>
     <h1>Chamados</h1>
+    <h2>Criar Novo Chamado</h2>
+    <form action="/create_ticket" method="POST">
+        <textarea name="description" placeholder="Descrição do problema" required></textarea><br>
+        <button type="submit">Criar Chamado</button>
+    </form>
     <div id="tickets">
         <table>
             <tr>
