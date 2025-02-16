@@ -1,4 +1,9 @@
 [
-    { "title": "Reunião Geral", "message": "Dia 20/02, às 19h, no salão de festas." },
-    { "title": "Manutenção Elétrica", "message": "Dia 25/02, das 8h às 12h, não haverá energia." }
+    { "title": "Reunião Geral", "message": "Data e Local a combinar" },
+    { "title": "Acidente!", "message": "Dia 16/02/2025 das 6h da manhã um carro bateu no poste do outro lado da Lucio Bittencourt." },
+    { "title": "Portão Eletronico Sem Funcionar", "message": "Dia 16/02/2025 as 8h. Devido ao acidente o predio está sem uma fase e por isso nosso portão eletronica não esta funcionando." },
+    { "title": "Manutenção Elétrica Devido Acidente", "message": "Dia 16/02/2025, das 8h às 12h, não haverá energia." },
+    { "title": "Manutenção Elétrica Concluida", "message": "Dia 16/02/2025 as 11am - Manutenção RGE devido ao acidente foi concluida." },
+    { "title": "Portão Eletronico em Funcionamento", "message": "Dia 16/02/2025 as 11am - Apos a conclusão da manutenção da RGE devido ao acidente a fase faltante foi restabelecida e o portão voltou a funcionar normalmente." }
+    
 ]

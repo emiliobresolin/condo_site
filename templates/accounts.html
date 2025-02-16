@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+            <!-- Barra de navegação -->
+            {% if 'username' in session %}
+            <div class="navbar">
+                <div class="username">
+                    {{ session['username'] }} - apartamento: {{ apartment }}
+                </div>
+                
+                <div>
+                    <a href="/tickets">Chamados</a>  
+                    <a href="/accounts">Contas</a>  
+                    <a href="/logout">Sair</a>|
+                </div>
+            </div>
+            {% else %}
+            <div class="navbar">
+                <div>
+                    <a href="/login">Login</a>
+                </div>
+            </div>
+            {% endif %}
     <h1>Contas</h1>
     <div id="accounts">
         <table>

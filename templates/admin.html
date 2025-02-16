@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- Barra de navegação -->
+    {% if 'username' in session %}
+    <div class="navbar">
+        <div class="username">
+            {{ session['username'] }} - apartamento: {{ apartment }}
+        </div>
+        <div>
+            <a href="/tickets">Chamados</a>  
+            <a href="/accounts">Contas</a>  
+            <a href="/logout">Sair</a>|
+        </div>
+    </div>
+    {% endif %}
+
     <h1>Administração - Edifício Taurus</h1>
     <h2>Chamados</h2>
     <table>
@@ -36,12 +50,14 @@
     <table>
         <tr>
             <th>Usuário</th>
+            <th>Mês</th>
             <th>Status</th>
             <th>Ação</th>
         </tr>
         {% for account in accounts %}
         <tr>
             <td>{{ account.user }}</td>
+            <td>{{ account.month }}</td>
             <td>{{ account.status }}</td>
             <td>
                 <form action="/update_account/{{ loop.index0 }}" method="POST">
@@ -54,6 +70,5 @@
     </table>
 
     <a href="/">Voltar</a>
-    <a href="/logout">Sair</a>
 </body>
 </html>

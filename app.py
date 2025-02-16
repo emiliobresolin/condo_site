@@ -20,8 +20,20 @@ def save_json(filename, data):
 # Página inicial (avisos)
 @app.route('/')
 def index():
+    if 'username' not in session:
+        return redirect(url_for('login'))
+
+    # Carrega o usuário logado
+    users = load_json('users.json')
+    logged_user = next((u for u in users if u['username'] == session['username']), None)
+    
+    apartment = None  # Garantir que a variável 'apartment' sempre exista
+
+    if logged_user:
+        apartment = logged_user['apartment']  # Acessa o apartamento do usuário
+
     notices = load_json('notices.json')
-    return render_template('index.html', notices=notices)
+    return render_template('index.html', notices=notices,apartment=apartment)
 
 # Página de login
 @app.route('/login', methods=['GET', 'POST'])

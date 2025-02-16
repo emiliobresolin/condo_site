@@ -1,6 +1,8 @@
 [
-    { "username": "sindico", "password": "1234", "role": "admin", "apartment": "101" },
-    { "username": "joao", "password": "123", "role": "morador", "apartment": "201" },
-    { "username": "maria", "password": "456", "role": "morador", "apartment": "202" },
-    { "username": "lucas", "password": "789", "role": "morador", "apartment": "203" }
+    { "username": "admin", "password": "1029384756", "role": "admin", "apartment": "999" },
+    { "username": "sindico", "password": "1234", "role": "admin", "apartment": "203" },
+    { "username": "emvendas", "password": "1234", "role": "morador", "apartment": "101" },
+    { "username": "claricevighi", "password": "1234", "role": "morador", "apartment": "302" },
+    { "username": "gersonvighi", "password": "1234", "role": "morador", "apartment": "302" },
+    { "username": "emiliobresolin", "password": "123456789", "role": "morador", "apartment": "303" }
 ]

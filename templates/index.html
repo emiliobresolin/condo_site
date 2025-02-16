@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <!-- Barra de navegação -->
+    {% if 'username' in session %}
+    <div class="navbar">
+        <div class="username">
+            {{ session['username'] }} - apartamento: {{ apartment }}
+        </div>
+        <div>
+            <a href="/tickets">Chamados</a>  
+            <a href="/accounts">Contas</a>  
+            <a href="/logout">Sair</a>|
+        </div>
+    </div>
+    {% else %}
+    <div class="navbar">
+        <div>
+            <a href="/login">Login</a>
+        </div>
+    </div>
+    {% endif %}
+
     <h1>Edifício Taurus</h1>
     <div id="condominium-photo">
         <img src="static/media/taurosPhto.png" alt="Foto do Edifício Taurus" />
@@ -17,10 +37,10 @@
             <p><strong>{{ notice.title }}</strong>: {{ notice.message }}</p>
         {% endfor %}
     </div>
-    {% if 'username' in session %}
-        <a href="/tickets">Chamados</a> | <a href="/accounts">Contas</a> | <a href="/logout">Sair</a>
-    {% else %}
-        <a href="/login">Login</a>
-    {% endif %}
+    <footer style="background-color: #218838; color: #fff; padding: 20px; text-align: center; margin-top: 40px;">
+        <p>&copy; 2025 Edifício Taurus. Todos os direitos reservados.</p>
+        <p>Desenvolvido por <strong>Emilio Bresolin</strong> - <em>Tonatiu Tech</em></p>
+        <p>Endereço: R. Dom Pedro II, Numero 29 - Vacchi, Sapucaia do Sul - RS, 93214-080</p>
+    </footer>    
 </body>
 </html>
