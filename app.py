@@ -8,7 +8,7 @@ app.secret_key = 'secret_key'  # Necessário para usar sessões
 # Função para carregar os dados de um arquivo JSON
 def load_json(filename):
     path = os.path.join(os.path.dirname(__file__), filename)  # Caminho absoluto
-    with open(path, 'r') as file:
+    with open(path, 'r', encoding='utf-8') as file:
         return json.load(file)
 
 # Função para salvar os dados de um arquivo JSON
