@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contas - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Contas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Usuário</th>
+                <th>Mês</th>
+                <th>Status</th>
+                <th>PIX</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for account in accounts %}
+                <tr>
+                    <td>{{ account.user }}</td>
+                    <td>{{ account.month }}</td>
+                    <td>{{ account.status }}</td>
+                    <td>{{ account.pix }}</td>
+                    <td>
+                        <form action="/admin/update_account/{{ loop.index0 }}" method="POST">
+                            <select name="status">
+                                <option value="Pendente" {% if account.status == 'Pendente' %}selected{% endif %}>Pendente</option>
+                                <option value="Pago" {% if account.status == 'Pago' %}selected{% endif %}>Pago</option>
+                            </select><br>
+                            <button type="submit">Atualizar</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Voltar</a>
+</body>
+</html>

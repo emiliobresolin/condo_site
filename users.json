@@ -1,0 +1,6 @@
+[
+    { "username": "sindico", "password": "1234", "role": "admin", "apartment": "101" },
+    { "username": "joao", "password": "123", "role": "morador", "apartment": "201" },
+    { "username": "maria", "password": "456", "role": "morador", "apartment": "202" },
+    { "username": "lucas", "password": "789", "role": "morador", "apartment": "203" }
+]

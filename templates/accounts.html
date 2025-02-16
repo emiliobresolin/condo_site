@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contas - Edifício Taurus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</head>
+<body>
+    <h1>Contas</h1>
+    <div id="accounts">
+        {% for account in accounts %}
+            <p>{{ account.month }}: {{ account.status }} - PIX: {{ account.pix }}</p>
+        {% endfor %}
+    </div>
+    <a href="/">Voltar</a>
+</body>
+</html>

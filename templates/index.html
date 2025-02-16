@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edifício Taurus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Edifício Taurus</h1>
+    <h2>Avisos</h2>
+    <div id="notices">
+        {% for notice in notices %}
+            <p><strong>{{ notice.title }}</strong>: {{ notice.message }}</p>
+        {% endfor %}
+    </div>
+    {% if 'username' in session %}
+        <a href="/tickets">Chamados</a> | <a href="/accounts">Contas</a> | <a href="/logout">Sair</a>
+    {% else %}
+        <a href="/login">Login</a>
+    {% endif %}
+</body>
+</html>

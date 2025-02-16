@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamados - Edifício Taurus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Chamados</h1>
+    <div id="tickets">
+        {% for ticket in tickets %}
+            <p>{{ ticket.description }} - Status: {{ ticket.status }} - Resposta: {{ ticket.response or 'Aguardando resposta' }}</p>
+        {% endfor %}
+    </div>
+    <form action="/add_ticket" method="POST">
+        <input type="text" name="description" placeholder="Descrição do chamado" required>
+        <button type="submit">Adicionar Chamado</button>
+    </form>
+    <a href="/">Voltar</a>
+</body>
+</html>

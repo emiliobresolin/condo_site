@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chamados - Admin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Chamados</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Status</th>
+                <th>Resposta</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ticket in tickets %}
+                <tr>
+                    <td>{{ ticket.description }}</td>
+                    <td>{{ ticket.status }}</td>
+                    <td>{{ ticket.response or 'Aguardando resposta' }}</td>
+                    <td>
+                        <form action="/admin/response_ticket/{{ loop.index0 }}" method="POST">
+                            <textarea name="response" placeholder="Resposta"></textarea><br>
+                            <select name="status">
+                                <option value="Aberto" {% if ticket.status == 'Aberto' %}selected{% endif %}>Aberto</option>
+                                <option value="Em andamento" {% if ticket.status == 'Em andamento' %}selected{% endif %}>Em andamento</option>
+                                <option value="Fechado" {% if ticket.status == 'Fechado' %}selected{% endif %}>Fechado</option>
+                            </select><br>
+                            <button type="submit">Responder</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Voltar</a>
+</body>
+</html>
