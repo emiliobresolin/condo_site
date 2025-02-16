@@ -18,21 +18,23 @@ h1, h2 {
 #notices {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;  /* Reduz a distância entre os avisos */
     margin-top: 30px;
 }
 
 #notices p {
     background-color: #ffffff;
-    padding: 15px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid #28a745; /* Adiciona borda verde ao redor do aviso */
 }
 
 #notices p strong {
     color: #28a745; /* Cor verde */
     font-size: 1.1em;
 }
+
 
 /* Estilo das tabelas */
 table {
@@ -152,7 +154,7 @@ a:hover {
 
     /* Evitar que os links fiquem maiores que a tela */
     a {
-        width: 92%;  /* Garante que o link ocupe toda a largura disponível, igual às tabelas */
+        width: 100%;  /* Garante que o link ocupe toda a largura disponível, igual às tabelas */
     }
 }
 
@@ -249,4 +251,22 @@ form a {
 form a:hover {
     background-color: #ddd;
     transform: scale(1.05); /* Leve aumento de tamanho */
+}
+/* Estilo para a imagem do condomínio */
+#condominium-photo {
+    text-align: center;  /* Centraliza a imagem */
+    margin-bottom: 20px;  /* Espaço abaixo da imagem */
+}
+
+#condominium-photo img {
+    max-width: 65%; /* Garante que a imagem não ultrapasse a largura da tela */
+    height: auto;    /* Mantém as proporções da imagem */
+    border-radius: 8px;  /* Bordas arredondadas, se desejar */
+}
+
+/* Esconde a imagem em dispositivos móveis */
+@media screen and (max-width: 768px) {
+    #condominium-photo {
+        display: none; /* Esconde o elemento em telas menores que 768px */
+    }
 }
